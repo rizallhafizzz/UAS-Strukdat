@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemesanan Tiket Film</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      width: 50%;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      font-size: 1.2em;
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input[type="text"], input[type="number"], select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Pemesanan Tiket Film</h1>
+  <form id="bookingForm">
+    <label for="movie">Pilih Film</label>
+    <select id="movie" required>
+      <option value="">Pilih Film...</option>
+      <option value="Titanic">Titanic</option>
+      <option value="Superman">Superman</option>
+      <option value="Iron Man">Iron Man</option>
+    </select>
+
+    <label for="name">Nama</label>
+    <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+
+    <label for="email">Email</label>
+    <input type="text" id="email" placeholder="Masukkan email Anda" required>
+
+    <label for="tickets">Jumlah Tiket</label>
+    <input type="number" id="tickets" placeholder="Jumlah tiket" required>
+
+    <button type="submit">Pesan Tiket</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const movie = document.getElementById('movie').value;
+    const email = document.getElementById('email').value;
+    const tickets = document.getElementById('tickets').value;
+
+    if (movie && name && email && tickets) {
+      localStorage.setItem('name', name);
+      localStorage.setItem('movie', movie);
+      localStorage.setItem('email', email);
+      localStorage.setItem('tickets', tickets);
+      window.location.href = 'confirmation.html';
+    } else {
+      alert('Harap lengkapi semua informasi!');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berhasil Membeli Tiket</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      width: 50%;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #28a745;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Berhasil Membeli Tiket!</h1>
+  <p>Tiket Anda untuk <span id="successMovie"></span> telah berhasil dibeli.</p>
+  <p>Terima kasih telah membeli tiket melalui kami!</p>
+
+  <button class="button" onclick="goHome()">Kembali ke Beranda</button>
+</div>
+
+<script>
+  window.onload = function() {
+    document.getElementById('successMovie').innerText = localStorage.getItem('movie');
+    localStorage.clear();
+  };
+
+  function goHome() {
+    window.location.href = 'index.html';
+  }
+</script>
+
+</body>
+</html>
